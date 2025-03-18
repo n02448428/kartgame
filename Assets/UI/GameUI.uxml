@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:Label text="FPS: 0&#10;Frame Time: 0ms" name="DebugText" style="top: 0; left: 0; color: rgb(121, 255, 170); position: absolute;" />
+    <engine:Label text="FPS: 0&#10;Frame Time: 0ms" name="DebugText" style="top: 0; left: 0; color: rgb(121, 255, 170); position: absolute; font-size: 40px;" />
     <engine:Label text="CONTROLS:&#10;arrows - left/right &#10;w - jump/drift&#10;d - accelerate&#10;s - reverse&#10;r - reset" name="ControlsText" style="left: 0; bottom: 0; font-size: 24px; color: rgb(255, 255, 255); -unity-text-align: lower-center; position: absolute; -unity-font-style: bold-and-italic;" />
     <engine:Label text="made by&#10;@dmitrymakelove &#10;follow on twitter!" name="CreditsText" style="bottom: 0; right: 0; font-size: 30px; color: rgb(255, 229, 0); -unity-text-align: lower-right; position: absolute;" />
-    <engine:Label text="0 km/h" name="SpeedText" style="top: 0; right: 0; font-size: 40px; color: rgb(255, 255, 255); position: absolute; -unity-font-style: bold;" />
+    <engine:Label text="0 km/h" name="SpeedText" style="top: 0; right: 0; font-size: 80px; color: rgb(255, 255, 255); position: absolute; -unity-font-style: bold;" />
 </engine:UXML>
