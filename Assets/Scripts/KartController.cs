@@ -350,4 +350,46 @@ public class KartController : MonoBehaviour
             if (cornerGrounded[i])
             {
                 float currentHeight = cornerDistances[i];
-               
+                float heightError = targetHoverHeight - currentHeight;
+                Vector3 worldCorner = transform.TransformPoint(cornerPoints[i]);
+                float forceAmount = hoverForce * heightError;
+                forceAmount -= rb.velocity.y * hoverDamping;
+                rb.AddForceAtPosition(transform.up * forceAmount, worldCorner, ForceMode.Force);
+            }
+        }
+    }
+    
+    void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        lastJumpTime = Time.time;
+        isGrounded = false;
+        hasDriftJumped = false;
+        driftButtonWasHeldInAir = false;
+    }
+    
+    void OnDrawGizmos()
+    {
+        float halfWidth = kartDimensions.x / 2;
+        float halfLength = kartDimensions.y / 2;
+        Vector3 frontLeft = transform.TransformPoint(new Vector3(-halfWidth, cornerRaycastHeight, halfLength));
+        Vector3 frontRight = transform.TransformPoint(new Vector3(halfWidth, cornerRaycastHeight, halfLength));
+        Vector3 rearLeft = transform.TransformPoint(new Vector3(-halfWidth, cornerRaycastHeight, -halfLength));
+        Vector3 rearRight = transform.TransformPoint(new Vector3(halfWidth, cornerRaycastHeight, -halfLength));
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(frontLeft, frontLeft + (-transform.up * groundRayDistance));
+        Gizmos.DrawLine(frontRight, frontRight + (-transform.up * groundRayDistance));
+        Gizmos.DrawLine(rearLeft, rearLeft + (-transform.up * groundRayDistance));
+        Gizmos.DrawLine(rearRight, rearRight + (-transform.up * groundRayDistance));
+        Gizmos.color = Color.green;
+        float hoverY = cornerRaycastHeight - targetHoverHeight;
+        Vector3 flHover = transform.TransformPoint(new Vector3(-halfWidth, hoverY, halfLength));
+        Vector3 frHover = transform.TransformPoint(new Vector3(halfWidth, hoverY, halfLength));
+        Vector3 rlHover = transform.TransformPoint(new Vector3(-halfWidth, hoverY, -halfLength));
+        Vector3 rrHover = transform.TransformPoint(new Vector3(halfWidth, hoverY, -halfLength));
+        Gizmos.DrawSphere(flHover, 0.05f);
+        Gizmos.DrawSphere(frHover, 0.05f);
+        Gizmos.DrawSphere(rlHover, 0.05f);
+        Gizmos.DrawSphere(rrHover, 0.05f);
+    }
+}
