@@ -171,7 +171,7 @@ public class KartController : MonoBehaviour
             }
         }
         isGrounded = groundedCorners > 0;
-        if (groundedCorners == 1 && !isDrifting && rb.velocity.magnitude < 1f)
+        if (groundedCorners == 1 && !isDrifting && rb.linearVelocity.magnitude < 1f)
         {
             rb.AddForce(transform.up * unstuckForce, ForceMode.Impulse);
         }
@@ -313,8 +313,8 @@ public class KartController : MonoBehaviour
         }
         
         moveDirection = transform.forward * currentSpeed;
-        Vector3 targetVelocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
-        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.fixedDeltaTime * 10f);
+        Vector3 targetVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
+        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, targetVelocity, Time.fixedDeltaTime * 10f);
     }
     
     void AlignToGround()
@@ -353,7 +353,7 @@ public class KartController : MonoBehaviour
                 float heightError = targetHoverHeight - currentHeight;
                 Vector3 worldCorner = transform.TransformPoint(cornerPoints[i]);
                 float forceAmount = hoverForce * heightError;
-                forceAmount -= rb.velocity.y * hoverDamping;
+                forceAmount -= rb.linearVelocity.y * hoverDamping;
                 rb.AddForceAtPosition(transform.up * forceAmount, worldCorner, ForceMode.Force);
             }
         }
