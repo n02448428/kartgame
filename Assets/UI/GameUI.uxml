@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Label text="Speed: 0 km/h" name="SpeedText" style="bottom: 0; left: 0; font-size: 24px; color: rgb(255, 255, 255); -unity-text-align: lower-left;" />
+    <engine:Label text="CONTROLS:&#10;Arrow Keys - Turn&#10;W - Jump/Drift&#10;D - Accelerate&#10;S - Reverse&#10;R - Reset Kart" name="ControlsText" style="top: 0; left: 0; font-size: 18px; color: rgb(255, 255, 255);" />
+    <engine:Label text="Made by @dmitrymakelove\nFollow on Twitter!" name="CreditsText" style="top: auto; bottom: 0; right: 0; font-size: 16px; color: rgb(255, 211, 0); -unity-text-align: lower-right;" />
+</engine:UXML>
