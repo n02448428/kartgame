@@ -73,7 +73,7 @@ public class KartUI : MonoBehaviour
         // Update Speed Display using Rigidbody.velocity (not linearVelocity).
         if (kart != null && speedText != null)
         {
-            float speedKmh = kart.GetComponent<Rigidbody>().velocity.magnitude * 3.6f;
+            float speedKmh = kart.GetComponent<Rigidbody>().linearVelocity.magnitude * 3.6f;
             speedText.text = $"Speed: {Mathf.Round(speedKmh)} km/h";
         }
 
