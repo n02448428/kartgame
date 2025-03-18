@@ -60,6 +60,8 @@ public class KartUI : MonoBehaviour
 
     void Update()
     {
+        
+        Debug.Log("Update is running");
         // FPS Calculation.
         frameCount++;
         deltaTime += Time.unscaledDeltaTime;
